@@ -2,7 +2,7 @@
 
 function App() {
 	return (
-			<h1>Job Application Tracker</h1>
+			<h1 className="text-blue-500">Job Application Tracker</h1>
 	)
 }
 

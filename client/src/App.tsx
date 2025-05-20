@@ -53,12 +53,22 @@ function App() {
 	]
 
 	return (
-		<div className="flex flex-col">
-			{
-				jobCards.map((x, i) => 
-					<JobCard key={i} {...x}/>
+		<div>
+			<div>
+				<form className="bg-gray-100">
+
+					<label htmlFor="job-title">Job title</label>
+					<input id="job-title"type="text" placeholder="Job Title"></input>
+				
+				</form>
+			</div>
+			<div className="flex flex-col">
+				{
+					jobCards.map((x, i) => 
+						<JobCard key={i} {...x}/>
 				)
 			}
+			</div>
 		</div>
 	)
 }

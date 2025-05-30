@@ -1,6 +1,7 @@
 import { JobApplicationStatus} from "./Types"
 
 //TODO: Change location from string to maps, or name location, oficial.
+//TODO: Change company name to list of stored in database
 export type JobCardProps = {
 	jobTitle: string,
 	companyName: string,

@@ -1,6 +1,7 @@
 import { JobApplicationStatus} from "./Types"
 
 import { JobCardProps , JobCard} from "./JobCard"
+import { JobInputForm } from "./JobInputForm"
 
 function App() {
 
@@ -55,12 +56,7 @@ function App() {
 	return (
 		<div>
 			<div>
-				<form className="bg-gray-100">
-
-					<label htmlFor="job-title">Job title</label>
-					<input id="job-title"type="text" placeholder="Job Title"></input>
-				
-				</form>
+				<JobInputForm/>
 			</div>
 			<div className="flex flex-col">
 				{
@@ -74,3 +70,5 @@ function App() {
 }
 
 export default App
+
+

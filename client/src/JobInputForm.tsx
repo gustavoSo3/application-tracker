@@ -1,11 +1,25 @@
 import React from 'react';
 
 import { JobApplicationStatus } from './Types';
+import { JobCardProps } from './JobCard';
 
-export function JobInputForm() {
+export function JobInputForm({
+  submitCallback,
+}: {
+  submitCallback: (newJobCard: JobCardProps) => void;
+}) {
   function submitEventHandler(event: React.FormEvent<HTMLFormElement>) {
-    console.log('Event triggered');
-
+    const newJob: JobCardProps = {
+      jobTitle: 'Junior Developer',
+      companyName: 'TestCorp',
+      location: 'Remote',
+      appliedDate: new Date('2025-06-01'),
+      status: JobApplicationStatus.Applied,
+      url: new URL('https://testcorp.dev/careers/junior-dev'),
+      description: 'Test position to validate the component and form logic.',
+    };
+    console.log(newJob);
+    submitCallback(newJob);
     event.preventDefault();
   }
 

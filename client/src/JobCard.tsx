@@ -31,7 +31,7 @@ export function JobCard({
   };
 
   return (
-    <div className="min-w-fit max-w-2xl p-4 pt-1 border-2 rounded-lg hover:border-blue-400">
+    <div className="w-2xl p-4 pt-1 border-2 rounded-lg hover:border-blue-400">
       <div className="flex pt-5 pb-3">
         <div className="flex flex-4">
           <h2 className="flex-1 text-3xl">{companyName}</h2>

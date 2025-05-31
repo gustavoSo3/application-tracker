@@ -54,11 +54,14 @@ function App() {
 	]
 
 	return (
-		<div>
-			<div>
+		<div className="flex gap-8">
+			<div className="flex flex-col gap-3">
+				<div >
+					<h1 className="text-4xl">Job application tracker</h1>
+				</div>
 				<JobInputForm/>
 			</div>
-			<div className="flex flex-col">
+			<div className="flex flex-col gap-2">
 				{
 					jobCards.map((x, i) => 
 						<JobCard key={i} {...x}/>

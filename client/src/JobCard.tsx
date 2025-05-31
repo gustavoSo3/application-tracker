@@ -25,7 +25,7 @@ export function JobCard({jobTitle, companyName, location, appliedDate, status, u
 
 
 	return (
-		<div className="min-w-fit max-w-2xl mt-1 mb-1 p-4 pt-1 border-2 rounded-lg hover:border-blue-400">
+		<div className="min-w-fit max-w-2xl p-4 pt-1 border-2 rounded-lg hover:border-blue-400">
 	
 			<div className="flex pt-5 pb-3">
 				<div className="flex flex-4">

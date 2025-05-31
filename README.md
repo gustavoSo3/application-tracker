@@ -14,7 +14,7 @@ A full-stack web app to track job applications, compare your resume skills to jo
 - [ ] CSV import/export
 - [ ] Email reminders to follow up
 
-*Demo coming soon!*
+_Demo coming soon!_
 
 ## Tech Stack
 
@@ -35,6 +35,7 @@ A full-stack web app to track job applications, compare your resume skills to jo
 - TypeScript
 - Git
 - Vercel / Railway
+- Prettier
 
 ## Installation
 

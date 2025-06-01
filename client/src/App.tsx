@@ -1,17 +1,35 @@
 import { JobEntryData, JobCard } from './JobCard';
 import { JobInputForm } from './JobInputForm';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function App() {
-  //JobCardProps[]
+  useEffect(() => {
+    const storedCards = localStorage.getItem('data');
+
+    console.log(storedCards);
+    if (storedCards !== null) {
+      setJobCards(JSON.parse(storedCards));
+    }
+  }, []);
+
   const [jobCards, setJobCards] = useState<JobEntryData[]>([]);
 
-  function newJobCardCallBack(newJobCard: JobEntryData) {
-    setJobCards([newJobCard, ...jobCards]);
+  //TODO:Update to use maybe a controller class to handle dabase connection
+  function updateLocalStorage(data: JobEntryData[]) {
+    localStorage.setItem('data', JSON.stringify(data));
+    console.log(data);
+  }
+
+  function createJobCardCallBack(newJobCard: JobEntryData) {
+    const newData: JobEntryData[] = [newJobCard, ...jobCards];
+    setJobCards(newData);
+    updateLocalStorage(newData);
   }
 
   function deleteJobCardCallBack(index: number) {
-    setJobCards((prev) => prev.filter((_, i) => i !== index));
+    const newData: JobEntryData[] = jobCards.filter((_, i) => i !== index);
+    setJobCards(newData);
+    updateLocalStorage(newData);
   }
 
   return (
@@ -20,7 +38,7 @@ function App() {
         <div>
           <h1 className="text-4xl">Job application tracker</h1>
         </div>
-        <JobInputForm submitCallback={newJobCardCallBack} />
+        <JobInputForm submitCallback={createJobCardCallBack} />
       </div>
       <div className="flex flex-col gap-2">
         {jobCards.map((x, i) => (

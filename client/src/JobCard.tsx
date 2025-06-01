@@ -58,7 +58,7 @@ export function JobCard({
         <div className="flex-none">{jobData.location}</div>
         <div className="flex-1"></div>
         <div className="flex-none flex gap-2">
-          {jobData.appliedDate.toLocaleDateString()}
+          {jobData.appliedDate === null ? '' : jobData.appliedDate.toLocaleDateString()}
 
           <div className="border-2 rounded-lg border-black hover:bg-red-500 hover:text-white hover:fill-current">
             <button onClick={onDeleteClick} className="w-full h-full">

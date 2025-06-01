@@ -36,6 +36,7 @@ _Demo coming soon!_
 - Git
 - Vercel / Railway
 - Prettier
+- ESLint
 
 ## Installation
 

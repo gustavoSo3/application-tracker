@@ -8,7 +8,7 @@ export type JobCardProps = {
   location: string;
   appliedDate: Date;
   status: JobApplicationStatus;
-  url: URL;
+  url: string;
   description: string;
 };
 

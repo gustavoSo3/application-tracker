@@ -95,7 +95,8 @@ export function JobInputForm({
             <label htmlFor="url" className="p-0.5 flex-1 text-lg">
               URL
             </label>
-            <input id="url" name="url" className="flex-2" type="url" placeholder="URL" />
+            <input id="url" name="url" className="flex-2" type="text"
+placeholder="URL" />
           </div>
 
           <div className="border-1 border-gray-400 rounded-sm flex">

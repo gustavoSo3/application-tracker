@@ -1,3 +1,5 @@
+import { FaRegTrashAlt } from 'react-icons/fa';
+
 import { JobApplicationStatus } from './Types';
 
 //TODO: Change location from string to maps, or name location, oficial.
@@ -57,15 +59,10 @@ export function JobCard({
         <div className="flex-1"></div>
         <div className="flex-none flex gap-2">
           {jobData.appliedDate.toLocaleDateString()}
-          <div className="border-2 rounded-lg border-black hover:bg-red-500">
-            <button>
-              <svg
-                className="inline w-8 h-8 hover:text-white hover:fill-current"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 -960 960 960"
-              >
-                <path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z" />
-              </svg>
+
+          <div className="border-2 rounded-lg border-black hover:bg-red-500 hover:text-white hover:fill-current">
+            <button onClick={onDeleteClick} className="w-full h-full">
+              <FaRegTrashAlt className="p-0.5 h-6 w-6" />
             </button>
           </div>
         </div>

@@ -9,7 +9,7 @@ function App() {
   const [jobCards, setJobCards] = useState<JobCardProps[]>([]);
 
   function newJobCardCallBack(newJobCard: JobCardProps) {
-    setJobCards([...jobCards, newJobCard]);
+    setJobCards([newJobCard, ...jobCards]);
   }
 
   return (

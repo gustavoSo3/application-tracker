@@ -39,7 +39,7 @@ export default [
           functions: 'never',
         },
       ],
-      'max-len': ['warn', { code: 100 }],
+      'max-len': ['warn', { code: 150 }],
       indent: ['error', 2],
       'react/react-in-jsx-scope': 'off',
       '@typescript-eslint/no-unused-vars': ['warn'],

@@ -1,15 +1,17 @@
-import { JobApplicationStatus } from './Types';
-
-import { JobCardProps, JobCard } from './JobCard';
+import { JobEntryData, JobCard } from './JobCard';
 import { JobInputForm } from './JobInputForm';
 import { useState } from 'react';
 
 function App() {
   //JobCardProps[]
-  const [jobCards, setJobCards] = useState<JobCardProps[]>([]);
+  const [jobCards, setJobCards] = useState<JobEntryData[]>([]);
 
-  function newJobCardCallBack(newJobCard: JobCardProps) {
+  function newJobCardCallBack(newJobCard: JobEntryData) {
     setJobCards([newJobCard, ...jobCards]);
+  }
+
+  function deleteJobCardCallBack(index: number) {
+    setJobCards((prev) => prev.filter((_, i) => i !== index));
   }
 
   return (
@@ -22,7 +24,7 @@ function App() {
       </div>
       <div className="flex flex-col gap-2">
         {jobCards.map((x, i) => (
-          <JobCard key={i} {...x} />
+          <JobCard key={i} index={i} jobData={x} deleteCallBack={deleteJobCardCallBack} />
         ))}
       </div>
     </div>

@@ -2,7 +2,7 @@ import { JobApplicationStatus } from './Types';
 
 //TODO: Change location from string to maps, or name location, oficial.
 //TODO: Change company name to list of stored in database
-export type JobCardProps = {
+export type JobEntryData = {
   jobTitle: string;
   companyName: string;
   location: string;
@@ -13,14 +13,14 @@ export type JobCardProps = {
 };
 
 export function JobCard({
-  jobTitle,
-  companyName,
-  location,
-  appliedDate,
-  status,
-  url,
-  description,
-}: JobCardProps) {
+  jobData,
+  deleteCallBack,
+  index,
+}: {
+  jobData: JobEntryData;
+  deleteCallBack: (index: number) => void;
+  index: number;
+}) {
   const statusColorMap = {
     [JobApplicationStatus.Applied]: 'text-blue-500',
     [JobApplicationStatus.Interviewing]: 'text-yellow-500',
@@ -30,27 +30,33 @@ export function JobCard({
     [JobApplicationStatus.Accepted]: 'text-green-500',
   };
 
+  function onDeleteClick() {
+    deleteCallBack(index);
+  }
+
   return (
     <div className="w-2xl p-4 pt-1 border-2 rounded-lg hover:border-blue-400">
       <div className="flex pt-5 pb-3">
         <div className="flex flex-4">
-          <h2 className="flex-1 text-3xl">{companyName}</h2>
+          <h2 className="flex-1 text-3xl">{jobData.companyName}</h2>
 
-          <div className="flex-2 text-3xl align-middle">{jobTitle}</div>
+          <div className="flex-2 text-3xl align-middle">{jobData.jobTitle}</div>
         </div>
 
         <div className="flex-1">
-          <h3 className={`text-xl ${statusColorMap[status]} text-right`}>{status.valueOf()}</h3>
+          <h3 className={`text-xl ${statusColorMap[jobData.status]} text-right`}>
+            {jobData.status.valueOf()}
+          </h3>
         </div>
       </div>
 
-      <div className="line-clamp-3">{description}</div>
+      <div className="line-clamp-3">{jobData.description}</div>
 
       <div className="pt-2 flex">
-        <div className="flex-none">{location}</div>
+        <div className="flex-none">{jobData.location}</div>
         <div className="flex-1"></div>
         <div className="flex-none flex gap-2">
-          {appliedDate.toLocaleDateString()}
+          {jobData.appliedDate.toLocaleDateString()}
           <div className="border-2 rounded-lg border-black hover:bg-red-500">
             <button>
               <svg

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
 import { JobApplicationStatus } from './Types';
-import { JobCardProps } from './JobCard';
+import { JobEntryData } from './JobCard';
 
-const defaultCard: JobCardProps = {
+const defaultCard: JobEntryData = {
   jobTitle: '',
   companyName: '',
   location: '',
@@ -16,9 +16,9 @@ const defaultCard: JobCardProps = {
 export function JobInputForm({
   submitCallback,
 }: {
-  submitCallback: (newJobCard: JobCardProps) => void;
+  submitCallback: (newJobCard: JobEntryData) => void;
 }) {
-  const [formData, setFormData] = useState<JobCardProps>(defaultCard);
+  const [formData, setFormData] = useState<JobEntryData>(defaultCard);
 
   function updateFormData(
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>

@@ -4,11 +4,15 @@ import { useEffect, useState } from 'react';
 
 function App() {
   useEffect(() => {
-    const storedCards = localStorage.getItem('data');
+    const storedJobCards = localStorage.getItem('data');
 
-    console.log(storedCards);
-    if (storedCards !== null) {
-      setJobCards(JSON.parse(storedCards));
+    if (storedJobCards !== null) {
+      const storedEntries = JSON.parse(storedJobCards) as JobEntryData[];
+
+      storedEntries.forEach((jobEntry) => {
+        jobEntry.appliedDate = new Date(jobEntry.appliedDate);
+      });
+      setJobCards(storedEntries);
     }
   }, []);
 

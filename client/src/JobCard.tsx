@@ -38,7 +38,7 @@ export function JobCard({
 
   return (
     <div className="w-2xl p-4 pt-1 border-2 rounded-lg hover:border-blue-400">
-      <div className="flex pt-5 pb-3">
+      <div className="flex pt-2 pb-3">
         <div className="flex flex-4">
           <h2 className="flex-1 text-3xl">{jobData.companyName}</h2>
 
@@ -52,7 +52,7 @@ export function JobCard({
         </div>
       </div>
 
-      <div className="line-clamp-3">{jobData.description}</div>
+      <div className="line-clamp-3 text-justify">{jobData.description}</div>
 
       <div className="pt-2 flex">
         <div className="flex-none">{jobData.location}</div>

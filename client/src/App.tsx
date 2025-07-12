@@ -1,6 +1,7 @@
 import { JobEntryData, JobCards } from './JobCard';
 import { JobInputForm } from './JobInputForm';
 import { useEffect, useState } from 'react';
+import { URLJobGrabber } from './URLJobGrabber';
 
 export default function App() {
   useEffect(() => {
@@ -38,10 +39,10 @@ export default function App() {
 
   return (
     <div className="flex gap-8">
-      <div className="flex flex-col gap-3">
-        <div>
-          <h1 className="text-4xl">Job application tracker</h1>
-        </div>
+      <div className="flex flex-col">
+        <h1 className="text-4xl text-center m-2">Job application tracker</h1>
+        <URLJobGrabber />
+        <div className="text-2xl text-center m-2">OR</div>
         <JobInputForm submitCallback={createJobCardCallBack} />
       </div>
       <JobCards jobCards={jobCards} deleteJobCardCallBack={deleteJobCardCallBack}></JobCards>

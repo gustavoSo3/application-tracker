@@ -14,6 +14,22 @@ export type JobEntryData = {
   description: string;
 };
 
+export function JobCards({
+  jobCards,
+  deleteJobCardCallBack,
+}: {
+  jobCards: JobEntryData[];
+  deleteJobCardCallBack: (index: number) => void;
+}) {
+  return (
+    <div className="flex flex-col gap-2">
+      {jobCards.map((x, i) => (
+        <JobCard key={i} index={i} jobData={x} deleteCallBack={deleteJobCardCallBack} />
+      ))}
+    </div>
+  );
+}
+
 export function JobCard({
   jobData,
   deleteCallBack,
@@ -37,7 +53,7 @@ export function JobCard({
   }
 
   return (
-    <div className="w-2xl p-4 pt-1 border-2 rounded-lg hover:border-blue-400">
+    <div className="w-2xl p-4 pt-1 border-2 rounded-lg hover:border-blue-400 hover:cursor-pointer">
       <div className="flex pt-2 pb-3">
         <div className="flex flex-4">
           <h2 className="flex-1 text-3xl">{jobData.companyName}</h2>

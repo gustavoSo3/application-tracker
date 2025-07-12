@@ -1,8 +1,8 @@
-import { JobEntryData, JobCard } from './JobCard';
+import { JobEntryData, JobCards } from './JobCard';
 import { JobInputForm } from './JobInputForm';
 import { useEffect, useState } from 'react';
 
-function App() {
+export default function App() {
   useEffect(() => {
     const storedJobCards = localStorage.getItem('data');
 
@@ -44,13 +44,7 @@ function App() {
         </div>
         <JobInputForm submitCallback={createJobCardCallBack} />
       </div>
-      <div className="flex flex-col gap-2">
-        {jobCards.map((x, i) => (
-          <JobCard key={i} index={i} jobData={x} deleteCallBack={deleteJobCardCallBack} />
-        ))}
-      </div>
+      <JobCards jobCards={jobCards} deleteJobCardCallBack={deleteJobCardCallBack}></JobCards>
     </div>
   );
 }
-
-export default App;
